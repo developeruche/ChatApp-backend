@@ -9,3 +9,4 @@ urlpatterns = [
     path('user/', include('user_control.urls')),
     path('message/', include('message_control.urls'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
