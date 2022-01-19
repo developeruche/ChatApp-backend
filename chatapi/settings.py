@@ -73,20 +73,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'chatapi.wsgi.application'
 
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_HEADERS = (
-    'x-requested-with',
-    'content-type',
-    'accept',
-    'origin',
-    'authorization',
-    'accept-encoding',
-    'x-csrftoken',
-    'access-control-allow-origin',
-    'content-disposition'
-)
-CORS_ALLOW_CREDENTIALS = False
-CORS_ALLOW_METHODS = ('GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS')
+CORS_ALLOW_ALL_ORIGINS = True
+
 
 
 # Database
@@ -98,23 +86,23 @@ DB_PASSWORD = config("DB_PASSWORD")
 DB_HOST = config("DB_HOST")
 DB_PORT = config("DB_PORT")
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': DB_NAME,
-#         'USER': DB_USER,
-#         'PASSWORD': DB_PASSWORD,
-#         'HOST': DB_HOST,
-#         'PORT': DB_PORT,
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': DB_NAME,
+        'USER': DB_USER,
+        'PASSWORD': DB_PASSWORD,
+        'HOST': DB_HOST,
+        'PORT': DB_PORT,
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 
